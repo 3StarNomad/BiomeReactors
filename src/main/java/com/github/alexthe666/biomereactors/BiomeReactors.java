@@ -14,7 +14,7 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = "biomereactors", version = "1.0.2", name = "Biome Reactors")
+@Mod(modid = "biomereactors", version = "1.0.3", name = "Biome Reactors")
 public class BiomeReactors
 {
     @Instance
@@ -31,9 +31,9 @@ public class BiomeReactors
     public void preInit(FMLPreInitializationEvent event) {
     	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
-        config_energy_needed = config.get("Biome Reactors", "Ammount of RF needed for Biome Conversion", 400000).getInt(400000);
+        config_energy_needed = config.get("Biome Reactors", "Ammount of RF needed for Biome Conversion", 55000).getInt(55000);
         config_change_worldgen = config.get("Biome Reactors", "Should changing the biome change the nearby World Gen?", true).getBoolean(true); 
-        config_change_chunk = config.get("Biome Reactors", "Should Reactors change the biome of a 7 X 7 radius, not the complete chunk?", true).getBoolean(true); 
+        config_change_chunk = config.get("Biome Reactors", "Should Reactors change the biome of a 7 X 7 radius, not the complete chunk?", false).getBoolean(true); 
         config_recipe_type = config.get("Biome Reactors", "What type of recipe should the reactor need? 0 = Vanilla, 1 = BuildCraft, 2 = IC2", 0).getInt(0); 
         config.save();
         channel = NetworkRegistry.INSTANCE.newSimpleChannel("biomereactors");
